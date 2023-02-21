@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package dndml.v5;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml/v5";
+
+import "dndml/v5/uses.proto";
+
+message Trait {
+    optional string source = 1;
+    optional string template = 2;
+    string kind = 3;    
+    string name = 4;
+    string description = 5;
+    Uses uses = 6;
+}

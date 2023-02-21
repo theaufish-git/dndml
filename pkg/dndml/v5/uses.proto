@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package dndml.v5;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml/v5";
+
+import "dndml/roll.proto";
+import "dndml/v5/enums/enums.proto";
+
+message Uses {
+    int32 count = 1;
+    enums.Period period = 2;
+    dndml.Roll recharge = 3;
+}

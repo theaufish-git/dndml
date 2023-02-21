@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package dndml.v5;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml/v5";
+
+import "dndml/roll.proto";
+import "dndml/stats.proto";
+import "dndml/v5/enums/enums.proto";
+
+message Adjustments {
+    repeated enums.Damage damage = 10;
+    repeated enums.Condition condition = 12;
+}
+
+message Lair {
+    string description = 1;
+    optional int32 initiative_count = 2;
+
+}
+
+message Trait {
+    optional string source = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message Range {
+    int32 range = 1;
+    optional int32 long = 2;
+}
+
+message Action {
+    optional string source = 1;
+    string name = 2;
+    Uses uses = 3;
+    dndml.Roll to_hit = 3;
+    dndml.Roll damage = 4;
+    Range range = 5;
+
+    dndml.Roll recharge = 6;
+    
+    message CastingOptions {
+        message Option {
+            string name = 1;
+        }
+    }
+
+    message RandomOptions {
+        dndml.Roll random = 1;
+        
+        message Option {
+            string roll = 1;
+            string name = 2;
+            string description = 3;
+        }
+        repeated Option options = 2;
+    }
+    RandomOptions random_options = 7;
+
+    string description = 6;
+}
+
+
+message Uses {
+    int32 count = 1;
+    string period = 2;
+}
+
+message Creature {
+    optional string source = 1;
+    string name = 2;
+    enums.CreatureType type = 3;
+    repeated string sub_types = 4;
+    float challenge_rating = 5;
+    Health health = 6;
+    dndml.Stats stats = 7;
+    repeated enums.Stat saving_throw_proficiencies = 9;
+    optional int32 passive_perception = 10;
+
+    Adjustments vulnerabilities = 11;
+    Adjustments resistances = 12;
+    Adjustments immunities = 13;
+    
+    repeated Trait traits = 14;
+    repeated Action actions = 15;
+    repeated Reaction reactions = 16;
+    repeated BonusAction bonus_actions = 17;
+    LegendaryActions lengendary_actions = 18;
+    repeated MythicAction mythic_actions = 19;
+
+}

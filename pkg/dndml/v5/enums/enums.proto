@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package dndml.v5.enums;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml/v5/enums";
+
+enum Class {
+    undefined_class = 0;
+    barbarian = 1;
+    bard = 2;
+    cleric = 3;
+    fighter = 4;
+    monk = 5;
+    paladin = 6;
+    ranger = 7;
+    sorcerer = 8;
+    warlock = 9;
+    wizard = 10;
+}
+
+enum Period {
+    undefined_period = 0;
+    round = 1;
+    short_rest = 2;
+    long_rest = 3;
+    day = 4;
+}

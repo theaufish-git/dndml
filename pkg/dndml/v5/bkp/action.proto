@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package dndml.v5;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml/v5";
+
+import "dndml/roll.proto";
+import "dndml/v5/enums/enums.proto";
+
+message Action {
+    string source = 1;
+    string name = 2;
+    string uses = 3;
+    string use_period = 4;
+    string description = 5;
+    dndml.Roll to_hit = 6;
+    dndml.Roll damage = 7;
+    int32 reach = 8;
+}

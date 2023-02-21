@@ -1,0 +1,231 @@
+syntax = "proto3";
+
+package dndml.v5.enums;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml/v5/enums";
+
+enum Action {
+    undefined_action = 0;
+    attack = 1;
+    cast_a_spell = 2;
+    class_action = 3;
+    dash = 4;
+    disengage = 5;
+    dodge = 6;
+    escape = 7;
+    grapple = 8;
+    help = 9;
+    hide = 10;
+    object = 11;
+    ready = 12;
+    search = 13;
+    sheild = 14;
+    shove = 15;
+}
+
+enum Alignment {
+    undefined_alignment = 0;
+    neutral = 1;
+    good = 2;
+    evil = 3;
+    lawful = 4;
+    chaotic = 5;
+}
+
+enum AlignmentModifier {
+    undefined_alignement_modifier = 0;
+    always = 1;
+    any = 2;
+    typically = 3;
+}
+
+enum BonusAction {
+    undefined_bonus_action = 0;
+    cast_a_bonus_spell = 2;
+    class_bonus_action = 3;
+    offhand_attack = 4;
+}
+
+enum Class {
+    undefined_class = 0;
+    barbarian = 1;
+    bard = 2;
+    cleric = 3;
+    fighter = 4;
+    monk = 5;
+    paladin = 6;
+    ranger = 7;
+    sorcerer = 8;
+    warlock = 9;
+    wizard = 10;
+}
+
+enum Condition {
+    undefined_condition = 0;
+    blinded = 1;
+    charmed = 2;
+    deafened = 3;
+    exhausted = 4;
+    frightened = 5;
+    grappled = 6;
+    incapacitated = 7;
+    invisible = 8;
+    paralyzed = 9;
+    petrified = 10;
+    poisoned = 11;
+    prone = 12;
+    restrained = 13;
+    stunned = 14;
+    unconscious = 15;
+}
+
+enum Cover {
+    undefined_cover = 0;
+    none = 1;
+    half = 2;
+    three_quarters = 3;
+    full = 4;
+}
+
+enum Damage {
+    undefined_damage = 0;
+    bludgeoning = 1;
+    slashing = 2;
+    piercing = 3;
+    acid = 4;
+    cold = 5;
+    fire = 6;
+    force = 7;
+    lightning = 8;
+    necrotic = 9;
+    poison = 10;
+    psychic = 11;
+    radiant = 12;
+    thunder = 13;
+}
+
+enum Environment {
+    undefined_environment = 0;
+    arctic = 1;
+    coastal = 2;
+    desert = 3;
+    forest = 4;
+    grassland = 5;
+    hill = 6;
+    mountain = 7;
+    swamp = 8;
+    underdark = 9;
+    underwater = 10;
+    urban = 11;
+}
+
+enum CreatureType {
+    undefined_creature = 0;
+    aberration = 1;
+    beast = 2;
+    celestial = 3;
+    construct = 4;
+    dragon = 5;
+    elemental = 6;
+    fey = 7;
+    fiend = 8;
+    giant = 9;
+    humanoid = 10;
+    monstrosity = 11;
+    ooze = 12;
+    plant = 13;
+    undead = 14;
+}
+
+enum Movement {
+    undefined_movement = 0;
+    burrow = 1;
+    climb = 2;
+    fly = 3;
+    swim = 4;
+    walk = 5;
+}
+
+enum MovementModifier {
+    undefined_movement_modifier = 0;
+    crawl = 1;
+    difficult_terrain = 2;
+    drag = 3;
+    drop_prone = 4;
+    high_jump = 5;
+    long_jump = 6;
+    stand_up = 7;
+}
+
+enum Obscufation {
+    undefined_obscufation = 0;
+    unobscured = 1;
+    lightly_obscured = 2;
+    heavily_obscured = 3;
+}
+
+enum Reaction {
+    undefined_reaction = 0;
+    cast_a_reaction_spell = 1;
+    opportunity_attack = 2;
+    readied_action = 3;
+}
+
+enum Sense {
+    undefined_sense = 0;
+    blindsight = 1;
+    darkvision = 2;
+    tremorsense = 3;
+    truesight = 4;
+}
+
+enum Size {
+    undefined_size = 0;
+    small = 1;
+    medium = 2;
+    large = 3;
+    huge = 4;
+    gargantuan = 5;
+}
+
+enum Skill {
+    undefined_skill = 0;
+    acrobatics = 1;
+    animal_handling = 2;
+    arcana = 3;
+    athletics = 4;
+    deception = 5;
+    history = 6;
+    insight = 7;
+    intimidation = 8;
+    investigation = 9;
+    medicine = 10;
+    nature = 11;
+    perception = 12;
+    performance = 13;
+    persuasion = 14;
+    religion = 15;
+    sleight_of_hand = 16;
+    stealth = 17;
+    survival = 18;
+}
+
+enum Stat {
+    undefined_stat = 0;
+    str = 1;
+    dex = 2;
+    con = 3;
+    int = 4;
+    wis = 5;
+    cha = 6;
+}
+
+enum TimeUnit {
+    undefined_time_unit = 0;
+    action = 1;
+    bonus_action = 2;
+    reaction = 3;
+    ritual = 4;
+    minute = 5;
+    hour = 6;
+    day = 7;
+}
