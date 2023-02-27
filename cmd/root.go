@@ -4,6 +4,7 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"io/fs"
 	"log"
 	"os"
@@ -15,10 +16,11 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "dndml",
-	Short: "Converts structured yaml files into source blocks suitable for pasting into dndbeyond.",
-	Long:  "Converts structured yaml files into source blocks suitable for pasting into dndbeyond.",
-	Run:   run,
+	Use:              "dndml",
+	Short:            "Converts structured yaml files into source blocks suitable for pasting into dndbeyond.",
+	Long:             "Converts structured yaml files into source blocks suitable for pasting into dndbeyond.",
+	Run:              root,
+	TraverseChildren: true,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -37,12 +39,15 @@ func init() {
 	//rootCmd.PersistentFlags().StringSliceP("include", "i", []string{"."}, "directories that contain referenced files")
 	rootCmd.PersistentFlags().StringSliceP("patterns", "p", []string{"*.yml", "*.yaml"}, "patterns that determine which files should be processed")
 	rootCmd.PersistentFlags().StringP("out-dir", "o", ".", "the directory that output files will be written to")
+	rootCmd.AddCommand(dndbeyondCmd)
 }
 
-func run(cmd *cobra.Command, args []string) {
-	patterns, err := cmd.PersistentFlags().GetStringSlice("patterns")
+func root(cmd *cobra.Command, args []string) {}
+
+func unmarshal(cmd *cobra.Command, args []string, parser *dndml.Unmarshaller) (objs map[string]dndml.Object, err error) {
+	patterns, err := cmd.Flags().GetStringSlice("patterns")
 	if err != nil {
-		log.Fatal("cannot read patterns:", err)
+		return nil, fmt.Errorf("cannot read patterns: %w", err)
 	}
 
 	fnames := []string{}
@@ -60,7 +65,6 @@ func run(cmd *cobra.Command, args []string) {
 					return err
 				} else if matched {
 					if _, ok := fnameset[path]; !ok {
-						log.Print(path)
 						fnames = append(fnames, path)
 						fnameset[path] = struct{}{}
 					}
@@ -72,12 +76,9 @@ func run(cmd *cobra.Command, args []string) {
 		})
 	}
 
-	parser := dndml.NewParser()
-	if err := parser.Parse(fnames...); err != nil {
+	if err := parser.Unmarshal(fnames...); err != nil {
 		log.Fatal("could not parse:", err)
 	}
 
-	for k, v := range parser.Objects() {
-		log.Printf("---\n%s => %+v\n", k, v)
-	}
+	return parser.Objects()
 }

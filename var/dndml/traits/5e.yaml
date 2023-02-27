@@ -15,4 +15,4 @@ template: >
   {{{ .World }}}
 name: lucky
 description: >
-  The {{{ .Creature.Type }}} can is oddly lucky.
+  The {{{ .Creature.Type }}} is oddly lucky.

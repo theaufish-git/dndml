@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package dndml;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml";
+
+import "dndml/enums/enums.proto";
+
+message Object {
+    enums.Object kind = 1;
+    string version = 2;
+    optional string source = 3;
+}

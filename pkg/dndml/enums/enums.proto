@@ -1,7 +1,16 @@
 syntax = "proto3";
 
-package dndml.v5.enums;
-option go_package = "github.com/theaufish-git/dndml/pkg/dndml/v5/enums";
+package dndml.enums;
+option go_package = "github.com/theaufish-git/dndml/pkg/dndml/enums";
+
+enum Object {
+    undefined_object = 0;
+    action = 1;
+    creature = 2;
+    feat = 3;
+    item = 4;
+    trait = 5;
+}
 
 enum Class {
     undefined_class = 0;

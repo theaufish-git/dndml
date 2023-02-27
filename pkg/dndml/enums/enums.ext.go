@@ -13,6 +13,31 @@ var (
 )
 
 // MarshalText attempts to marshal the given Class into a string representation.
+func (x *Object) MarshalText() (text []byte, err error) {
+	class, ok := Object_name[int32(*x)]
+	if !ok {
+		return nil, fmt.Errorf("%w: %d is not a Class", ErrIvalidEnumInt, *x)
+	}
+
+	return []byte(class), nil
+}
+
+// UnmarshalText attempts to unmarshal the text given into the Class
+func (x *Object) UnmarshalText(text []byte) error {
+	var class Object
+	if len(text) == 0 {
+		class = Object_undefined_object
+	} else if c, ok := Object_value[string(text)]; ok {
+		class = Object(c)
+	} else {
+		return fmt.Errorf("%w: %s is not a Class", ErrIvalidEnumString, text)
+	}
+
+	*x = class
+	return nil
+}
+
+// MarshalText attempts to marshal the given Class into a string representation.
 func (x *Class) MarshalText() (text []byte, err error) {
 	class, ok := Class_name[int32(*x)]
 	if !ok {

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/theaufish-git/dndml/pkg/dndml/v5/enums"
+	"github.com/theaufish-git/dndml/pkg/dndml/enums"
 )
 
 func TestClass_MarshalText(t *testing.T) {

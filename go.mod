@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0
+	github.com/jinzhu/copier v0.3.5
 	github.com/kisielk/errcheck v1.6.3
 	github.com/maxbrunsfeld/counterfeiter/v6 v6.6.1
 	github.com/rleszilm/tag-version v0.4.0
