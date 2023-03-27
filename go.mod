@@ -3,6 +3,7 @@ module github.com/theaufish-git/dndml
 go 1.19
 
 require (
+	github.com/go-test/deep v1.1.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0
 	github.com/jinzhu/copier v0.3.5
 	github.com/kisielk/errcheck v1.6.3
