@@ -1,9 +1,0 @@
-kind: trait
-version: v5
-source: http://localhost:8100/dndml/traits/5e#trait:jerk
-template: >
-  {{{ .Hello }}}
-  {{{ .World }}}
-name: amphibious
-description: >
-  The {{{ .Creature.Type }}} can breath air and water.
