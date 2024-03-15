@@ -15,5 +15,5 @@ lint:
 	$(PY) -m pylint src tests
 	$(PY) -m mypy src tests
 
-venv: .venv
+venv:
 	$(PYV) -m venv .venv
