@@ -16,7 +16,8 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.11"
 poetry = "^1.8.2"
-pydantic = "^2.6.3"
+pydantic = "^2.6.4"
 make = "^0.1.6.post2"
 lint = "^1.2.1"
 case-converter = "^1.1.0"
+pyyaml = "^6.0.1"

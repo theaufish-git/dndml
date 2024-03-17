@@ -1,9 +1,10 @@
-from enum import Enum, auto
+from enum import StrEnum, auto
 
-from caseconverter import camelcase, flatcase, kebabcase, macrocase,pascalcase, snakecase
+from caseconverter import (camelcase, flatcase, kebabcase, macrocase,
+                           pascalcase, snakecase)
 
 
-class StrEnum(Enum):
+class StrEnum(StrEnum):
     def __str__(self):
         return self.name
 

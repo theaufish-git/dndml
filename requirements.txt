@@ -1,3 +1,4 @@
 case-converter
 poetry
 pydantic
+pyyaml

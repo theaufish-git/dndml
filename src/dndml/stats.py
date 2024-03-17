@@ -1,10 +1,10 @@
-from enum import StrEnum
+from .enum import StrEnum, auto
 
 
 class Stat(StrEnum):
-    STR = "STR"
-    DEX = "DEX"
-    CON = "CON"
-    INT = "INT"
-    WIS = "WIS"
-    CHA = "CHA"
+    STR = auto()
+    DEX = auto()
+    CON = auto()
+    INT = auto()
+    WIS = auto()
+    CHA = auto()
