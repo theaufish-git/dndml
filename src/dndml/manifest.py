@@ -2,6 +2,7 @@ from typing import Any, Optional, Protocol
 
 from pydantic import BaseModel, ImportString
 from yaml import safe_load
+
 from .registry import Registry
 
 
@@ -32,8 +33,6 @@ class Manifest(BaseModel):
                     item.unpack() if isinstance(item, Manifest) else item
                     for item in value
                 ]
-
-        
 
         return self.kind(**self.kwargs)
 
